@@ -1,0 +1,842 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Chuẩn bị bài Writing — 9/6</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:        oklch(0.972 0.012 86);
+    --paper:     oklch(0.985 0.008 86);
+    --ink:       oklch(0.22 0.018 80);
+    --ink-soft:  oklch(0.42 0.018 80);
+    --rule:      oklch(0.88 0.012 86);
+    --rule-soft: oklch(0.93 0.010 86);
+    --accent:    oklch(0.42 0.075 155);
+    --accent-2:  oklch(0.50 0.085 155);
+    --tag-bg:    oklch(0.94 0.025 155);
+    --ok:        oklch(0.55 0.130 150);
+    --ok-bg:     oklch(0.94 0.045 150);
+    --no:        oklch(0.55 0.170 28);
+    --no-bg:     oklch(0.95 0.030 28);
+    --warn:      oklch(0.55 0.120 80);
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "IBM Plex Sans", system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    padding: 48px 24px 120px;
+    background-image:
+      radial-gradient(circle at 12% -8%, oklch(0.94 0.04 150 / 0.5), transparent 40%),
+      radial-gradient(circle at 95% 0%, oklch(0.94 0.03 80 / 0.6), transparent 35%);
+  }
+  .shell { max-width: 880px; margin: 0 auto; }
+
+  /* ---------- header ---------- */
+  .masthead {
+    display: flex; align-items: flex-end; justify-content: space-between;
+    gap: 24px; padding-bottom: 18px;
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 32px;
+  }
+  .masthead .eyebrow {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 8px;
+  }
+  .masthead h1 {
+    font-family: "Newsreader", serif;
+    font-weight: 500; font-size: 44px; line-height: 1.05;
+    margin: 0; letter-spacing: -0.01em;
+  }
+  .masthead h1 em { font-style: italic; color: var(--accent-2); font-weight: 400;}
+  .masthead .date {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 12px; color: var(--ink-soft);
+    white-space: nowrap; padding-bottom: 6px;
+  }
+
+  /* ---------- task card ---------- */
+  .task {
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 14px;
+    padding: 28px 32px;
+    position: relative;
+    margin-bottom: 40px;
+    box-shadow: 0 1px 0 oklch(0.99 0.01 86), 0 12px 32px -24px oklch(0.20 0.02 80 / 0.18);
+  }
+  .task::before {
+    content: "TASK 2"; position: absolute; top: -10px; left: 24px;
+    background: var(--accent); color: var(--bg);
+    font-family: "IBM Plex Mono", monospace; font-size: 11px; letter-spacing: 0.18em;
+    padding: 4px 10px; border-radius: 4px;
+  }
+  .task p {
+    font-family: "Newsreader", serif; font-size: 19px;
+    margin: 0; color: var(--ink);
+    text-wrap: pretty;
+  }
+  .task p + p { margin-top: 10px; }
+
+  /* ---------- sections ---------- */
+  section { margin-bottom: 44px; }
+  .sec-head {
+    display: flex; align-items: baseline; gap: 14px;
+    margin-bottom: 8px;
+  }
+  .sec-num {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px; letter-spacing: 0.18em;
+    color: var(--accent); font-weight: 500;
+  }
+  .sec-title {
+    font-family: "Newsreader", serif;
+    font-weight: 500; font-size: 28px; margin: 0;
+    letter-spacing: -0.005em;
+  }
+  .sec-sub {
+    color: var(--ink-soft); font-size: 14px; margin: 0 0 22px;
+    border-bottom: 1px dashed var(--rule); padding-bottom: 14px;
+  }
+
+  /* ---------- vocabulary blocks ---------- */
+  .vocab-group {
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 12px;
+    padding: 4px 24px;
+  }
+  .vocab-row {
+    padding: 18px 0;
+  }
+  .vocab-row:not(:last-child)::after {
+    content: "";
+    display: block;
+    width: 28px;
+    border-top: 1px dashed var(--rule);
+    margin-top: 18px;
+  }
+  .vocab-cue {
+    font-family: "Newsreader", serif;
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 8px;
+    display: flex; align-items: center; gap: 10px;
+    letter-spacing: -0.005em;
+  }
+  .vocab-cue::before {
+    content: ""; width: 18px; height: 1px; background: var(--accent);
+  }
+  .vocab-items {
+    display: flex; flex-direction: column; gap: 8px;
+    font-family: "Newsreader", serif; font-size: 19px;
+  }
+  .given { color: var(--ink); }
+
+  /* ---------- thesis / topic sentence ---------- */
+  .vi-block {
+    background: linear-gradient(180deg, var(--tag-bg), var(--paper));
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--accent);
+    border-radius: 10px;
+    padding: 18px 22px;
+    font-family: "Newsreader", serif;
+    font-size: 18px;
+    color: var(--ink);
+  }
+  .vi-label {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 6px;
+    font-weight: 500;
+  }
+
+  /* ---------- idea blocks ---------- */
+  .idea {
+    margin-top: 22px;
+    border: 1px solid var(--rule);
+    border-radius: 12px;
+    padding: 22px 24px;
+    background: var(--paper);
+  }
+  .idea-head {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 4px;
+  }
+  .idea-title {
+    font-family: "Newsreader", serif;
+    font-size: 21px; line-height: 1.3;
+    margin: 0 0 14px;
+  }
+  .support {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 10.5px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--ink-soft); margin: 16px 0 8px;
+  }
+  .bullets { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 6px; }
+  .bullets li {
+    font-family: "Newsreader", serif; font-size: 18px;
+    padding-left: 22px; position: relative;
+    text-wrap: pretty;
+  }
+  .bullets li.dash::before { content: "—"; position: absolute; left: 0; color: var(--accent); }
+  .bullets li.plus::before { content: "+"; position: absolute; left: 4px; color: var(--accent-2); font-weight: 600; }
+  .bullets li.sub { padding-left: 36px; }
+  .bullets li.sub::before { left: 18px; }
+
+  /* ---------- the blank input ---------- */
+  .blank {
+    display: inline-flex; align-items: baseline;
+    font-family: "Newsreader", serif;
+    font-size: inherit;
+    background: transparent;
+  }
+  .blank .stem { color: var(--ink); }
+  .blank input {
+    font: inherit;
+    font-family: "Newsreader", serif;
+    font-style: italic;
+    color: var(--accent-2);
+    border: none;
+    background: transparent;
+    border-bottom: 1.5px solid var(--ink-soft);
+    padding: 0 2px;
+    margin: 0;
+    width: 7.5ch;
+    min-width: 4ch;
+    outline: none;
+    transition: border-color .15s ease, background .15s ease, color .15s ease;
+    text-align: left;
+  }
+  .blank input:focus {
+    border-bottom-color: var(--accent);
+    background: oklch(0.96 0.025 155 / 0.6);
+  }
+  .blank input::placeholder { color: oklch(0.75 0.01 86); font-style: italic; }
+  .blank input.wide { width: 11ch; }
+  .blank input.xwide { width: 14ch; }
+
+  .blank input.correct {
+    border-bottom-color: var(--ok);
+    background: var(--ok-bg);
+    color: var(--ok);
+  }
+  .blank input.incorrect {
+    border-bottom-color: var(--no);
+    background: var(--no-bg);
+    color: var(--no);
+  }
+  .blank .mark {
+    display: inline-block;
+    width: 14px; text-align: center;
+    margin-left: 4px;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 13px;
+    opacity: 0;
+    transform: translateY(-2px);
+    transition: opacity .2s, transform .2s;
+  }
+  .blank .mark.show { opacity: 1; transform: translateY(0); }
+  .blank .mark.ok  { color: var(--ok); }
+  .blank .mark.no  { color: var(--no); }
+
+  /* ---------- action bar ---------- */
+  .actions {
+    position: sticky;
+    bottom: 16px;
+    margin-top: 56px;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 14px;
+    padding: 14px 18px;
+    display: flex; align-items: center; gap: 16px;
+    box-shadow: 0 18px 40px -22px oklch(0.20 0.02 80 / 0.30);
+    backdrop-filter: blur(6px);
+  }
+  .score {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 13px;
+    color: var(--ink-soft);
+    flex: 1;
+    display: flex; gap: 16px; align-items: center; flex-wrap: wrap;
+  }
+  .score b { color: var(--ink); font-weight: 600; }
+  .score .pill {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 3px 10px; border-radius: 999px;
+    background: var(--rule-soft); color: var(--ink-soft);
+    font-size: 12px;
+  }
+  .score .pill.ok { background: var(--ok-bg); color: var(--ok); }
+  .score .pill.no { background: var(--no-bg); color: var(--no); }
+  .score .pill.sent { background: var(--ok-bg); color: var(--ok); }
+  .score .pill.sending { background: var(--rule-soft); color: var(--ink-soft); }
+  .score .pill.fail { background: var(--no-bg); color: var(--no); }
+
+  button {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    border: 1px solid var(--rule);
+    background: var(--paper);
+    color: var(--ink);
+    padding: 9px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all .15s ease;
+  }
+  button:hover { border-color: var(--ink-soft); }
+  button.primary {
+    background: var(--accent);
+    color: oklch(0.985 0.008 86);
+    border-color: var(--accent);
+  }
+  button.primary:hover { background: var(--accent-2); border-color: var(--accent-2); }
+  button:disabled { opacity: 0.6; cursor: not-allowed; }
+
+  /* ---------- footer ---------- */
+  footer {
+    margin-top: 60px;
+    padding-top: 18px;
+    border-top: 1px solid var(--rule);
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px; letter-spacing: 0.08em;
+    color: var(--ink-soft);
+    display: flex; justify-content: space-between;
+  }
+
+  @media (max-width: 640px) {
+    body { padding: 28px 16px 120px; }
+    .masthead h1 { font-size: 32px; }
+    .masthead { flex-direction: column; align-items: flex-start; gap: 6px; }
+    .task { padding: 24px 20px; }
+    .actions { flex-wrap: wrap; }
+  }
+
+  /* === Student-info gate === */
+  .gate-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(20,20,20,.55);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    padding: 20px;
+  }
+  .gate-card {
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 14px;
+    padding: 32px 32px 28px;
+    max-width: 440px;
+    width: 100%;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.18);
+  }
+  .gate-card .gate-eyebrow {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 8px;
+  }
+  .gate-card h2 {
+    font-family: "Newsreader", serif;
+    font-weight: 500;
+    font-size: 24px;
+    margin: 0 0 8px;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+  .gate-card .gate-sub {
+    font-family: "IBM Plex Sans", system-ui, sans-serif;
+    font-size: 15px;
+    color: var(--ink-soft);
+    margin: 0 0 22px;
+  }
+  .gate-field { margin-bottom: 16px; }
+  .gate-field label {
+    display: block;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 6px;
+  }
+  .gate-field label .req { color: var(--no); margin-left: 2px; }
+  .gate-field input {
+    width: 100%;
+    font-family: "IBM Plex Sans", system-ui, sans-serif;
+    font-size: 15px;
+    color: var(--ink);
+    background: #fff;
+    border: 1px solid var(--rule);
+    border-bottom: 1.5px solid var(--ink);
+    border-radius: 6px;
+    padding: 9px 12px;
+    outline: none;
+    transition: border-color .15s, box-shadow .15s;
+  }
+  .gate-field input:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px oklch(0.94 0.025 155 / 0.5);
+  }
+  .gate-field input.invalid {
+    border-color: var(--no);
+    background: var(--no-bg);
+  }
+  .gate-error {
+    font-family: "IBM Plex Sans", system-ui, sans-serif;
+    font-size: 13px;
+    color: var(--no);
+    margin: 0 0 14px;
+    min-height: 18px;
+  }
+  .gate-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 6px;
+  }
+  /* Student identity badge in masthead */
+  .student-tag {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    color: var(--ink-soft);
+    margin-top: 6px;
+    line-height: 1.7;
+  }
+  .student-tag b { color: var(--ink); font-weight: 600; }
+</style>
+</head>
+<body>
+
+<!-- Student-info gate: must enter Name + Class before starting -->
+<div class="gate-overlay" id="gate-overlay" role="dialog" aria-modal="true" aria-labelledby="gate-title">
+  <div class="gate-card">
+    <p class="gate-eyebrow">Before you begin</p>
+    <h2 id="gate-title">Student information</h2>
+    <p class="gate-sub">Please enter your name and class to start the practice.</p>
+    <div class="gate-field">
+      <label for="gate-name">Name<span class="req">*</span></label>
+      <input type="text" id="gate-name" autocomplete="name" spellcheck="false" />
+    </div>
+    <div class="gate-field">
+      <label for="gate-class">Class<span class="req">*</span></label>
+      <input type="text" id="gate-class" autocomplete="off" spellcheck="false" />
+    </div>
+    <p class="gate-error" id="gate-error"></p>
+    <div class="gate-actions">
+      <button class="primary" id="gate-start" type="button">Start practice</button>
+    </div>
+  </div>
+</div>
+
+  <div class="shell">
+
+    <header class="masthead">
+      <div>
+        <div class="eyebrow">IELTS · Writing Task 2 · Agree / Disagree</div>
+        <h1>Chuẩn bị bài Writing<br><em>Individuals vs governments &amp; the environment</em></h1>
+      </div>
+      <div class="date">09 · 06 · 2026</div>
+    </header>
+
+    <div class="task">
+      <p>Many people think that individuals can do little to improve the environment. Only governments and large companies can make a real difference.</p>
+      <p><strong>To what extent do you agree or disagree?</strong></p>
+    </div>
+
+    <!-- ============ PARAPHRASE ============ -->
+    <section>
+      <div class="sec-head">
+        <span class="sec-num">01</span>
+        <h2 class="sec-title">Paraphrase</h2>
+      </div>
+      <p class="sec-sub">Điền vào chỗ trống để hoàn thành các cụm từ paraphrase. Gõ phần còn lại của từ — ví dụ với <code>pro______</code> bạn gõ phần sau "pro".</p>
+
+      <div class="vocab-group">
+        <div class="vocab-row">
+          <div class="vocab-cue">improve the environment</div>
+          <div class="vocab-items">
+            <span class="blank"><span class="stem">pro</span><input data-a="tect" data-prefix="pro" placeholder="…" /><span class="stem">&nbsp;the environment</span><span class="mark"></span></span>
+            <span class="blank"><span class="stem">S</span><input data-a="olve" data-prefix="S" placeholder="…" /><span class="stem">&nbsp;environmental problems</span><span class="mark"></span></span>
+          </div>
+        </div>
+
+        <div class="vocab-row">
+          <div class="vocab-cue">individuals</div>
+          <div class="vocab-items">
+            <span class="blank"><span class="stem">or</span><input data-a="dinary" data-prefix="or" class="wide" placeholder="…" /><span class="stem">&nbsp;people</span><span class="mark"></span></span>
+          </div>
+        </div>
+
+        <div class="vocab-row">
+          <div class="vocab-cue">make a real difference</div>
+          <div class="vocab-items">
+            <span class="blank"><span class="stem">make an important contri</span><input data-a="bution" data-prefix="contri" class="wide" placeholder="…" /><span class="mark"></span></span>
+            <span class="blank"><span class="stem">have a&nbsp;</span><input data-a="role" data-prefix="(full word)" placeholder="…" /><span class="stem">&nbsp;to play</span><span class="mark"></span></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ THESIS ============ -->
+    <section>
+      <div class="sec-head">
+        <span class="sec-num">02</span>
+        <h2 class="sec-title">Thesis statement</h2>
+      </div>
+      <div class="vi-block" style="margin-top: 8px;">
+        <div class="vi-label">Luận đề</div>
+        Tôi không đồng ý với quan điểm này vì mặc dù chính phủ và các doanh nghiệp vẫn giữ vai trò lớn nhưng mỗi cá nhân cũng có thể đóng góp quan trọng thông qua lối sống hằng ngày của mình.
+      </div>
+    </section>
+
+    <!-- ============ BODY 1 ============ -->
+    <section>
+      <div class="sec-head">
+        <span class="sec-num">03</span>
+        <h2 class="sec-title">Body paragraph 2</h2>
+      </div>
+      <div class="vi-block" style="margin-top: 8px;">
+        <div class="vi-label">Topic sentence</div>
+        Tuy nhiên, tôi tin rằng mỗi cá nhân cũng có thể tạo ra những thay đổi thực sự đối với môi trường.
+      </div>
+
+      <div class="idea">
+        <div class="idea-head">Idea 1</div>
+        <p class="idea-title">reduce waste and energy consu<span class="blank"><input data-a="mption" data-prefix="consu" class="wide" placeholder="…" /><span class="mark"></span></span>
+          in daily life</p>
+
+        <div class="support">Support for idea 1</div>
+        <ul class="bullets">
+          <li class="dash">When many indi<span class="blank"><input data-a="viduals" data-prefix="indi" class="wide" placeholder="…" /><span class="mark"></span></span>
+            change their habits -&gt; the total ef<span class="blank"><input data-a="fect" data-prefix="ef" placeholder="…" /><span class="mark"></span></span>
+            is large
+          </li>
+          <li class="dash">reduce waste by recy<span class="blank"><input data-a="cling" data-prefix="recy" placeholder="…" /><span class="mark"></span></span>,
+            using less plas<span class="blank"><input data-a="tic" data-prefix="plas" placeholder="…" /><span class="mark"></span></span>
+          </li>
+          <li class="dash">Reduce energy consu<span class="blank"><input data-a="mption" data-prefix="consu" class="wide" placeholder="…" /><span class="mark"></span></span>
+            by saving elec<span class="blank"><input data-a="tricity" data-prefix="elec" class="wide" placeholder="…" /><span class="mark"></span></span>
+            at home
+          </li>
+          <li class="plus sub">turn <span class="blank"><input data-a="off" data-prefix="(full word)" placeholder="…" /><span class="mark"></span></span>
+            lights
+          </li>
+          <li class="plus sub">use less air condi<span class="blank"><input data-a="tioning" data-prefix="condi" class="wide" placeholder="…" /><span class="mark"></span></span>
+          </li>
+          <li class="dash">Effect: Po<span class="blank"><input data-a="wer" data-prefix="Po" placeholder="…" /><span class="mark"></span></span>
+            stations b<span class="blank"><input data-a="urn" data-prefix="b" placeholder="…" /><span class="mark"></span></span>
+            less fossil fuels (coal and gas) -&gt; Prevent green<span class="blank"><input data-a="house" data-prefix="green" placeholder="…" /><span class="mark"></span></span>
+            emis<span class="blank"><input data-a="sions" data-prefix="emis" placeholder="…" /><span class="mark"></span></span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="idea">
+        <div class="idea-head">Idea 2</div>
+        <p class="idea-title">consumers influe<span class="blank"><input data-a="nce" data-prefix="influe" placeholder="…" /><span class="mark"></span></span>
+          companies and governments to change</p>
+
+        <div class="support">Support for idea 2</div>
+        <ul class="bullets">
+          <li class="dash">Consumers push companies to produce more eco-<span class="blank"><input data-a="friendly" data-prefix="eco-" class="wide" placeholder="…" /><span class="mark"></span></span>
+            products
+          </li>
+          <li class="dash">choose to buy elec<span class="blank"><input data-a="tric" data-prefix="elec" placeholder="…" /><span class="mark"></span></span>
+            cars
+          </li>
+          <li class="dash">re<span class="blank"><input data-a="fuse" data-prefix="re" placeholder="…" /><span class="mark"></span></span>
+            products with too much plastic
+          </li>
+          <li class="dash">companies not<span class="blank"><input data-a="ice" data-prefix="not" placeholder="…" /><span class="mark"></span></span>
+            this change
+          </li>
+          <li class="dash">produce gree<span class="blank"><input data-a="ner" data-prefix="gree" placeholder="…" /><span class="mark"></span></span>
+            products to keep their cus<span class="blank"><input data-a="tomers" data-prefix="cus" class="wide" placeholder="…" /><span class="mark"></span></span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ ACTIONS ============ -->
+    <div class="actions">
+      <div class="score" id="score">
+        <span><b id="filled">0</b> / <b id="total">0</b> đã điền</span>
+        <span class="pill ok" id="pillOk" style="display:none">✓ <b id="okCount">0</b> đúng</span>
+        <span class="pill no" id="pillNo" style="display:none">✗ <b id="noCount">0</b> sai</span>
+        <span class="pill" id="pillInfo">Đáp án sẽ không được hiển thị — hãy thử lại các ô sai.</span>
+      </div>
+      <button id="reset" type="button">Làm lại</button>
+      <button id="check" class="primary" type="button">Kiểm tra</button>
+    </div>
+
+    <footer>
+      <span>IELTS Writing prep · Agree / Disagree</span>
+      <span id="blankCount">— ô trống</span>
+    </footer>
+
+  </div>
+
+<script>
+  // ============================================================
+  // Test logic
+  // ============================================================
+  const inputs = Array.from(document.querySelectorAll('.blank input'));
+  const totalEl = document.getElementById('total');
+  const filledEl = document.getElementById('filled');
+  const okCountEl = document.getElementById('okCount');
+  const noCountEl = document.getElementById('noCount');
+  const pillOk = document.getElementById('pillOk');
+  const pillNo = document.getElementById('pillNo');
+  const pillInfo = document.getElementById('pillInfo');
+  const checkBtn = document.getElementById('check');
+  const resetBtn = document.getElementById('reset');
+  const blankCountEl = document.getElementById('blankCount');
+
+  totalEl.textContent = inputs.length;
+  blankCountEl.textContent = inputs.length + ' ô trống';
+
+  function sizeInput(el){
+    const len = Math.max(el.value.length, (el.dataset.a||'').length);
+    el.style.width = Math.max(4, len + 1.5) + 'ch';
+  }
+  inputs.forEach(el => {
+    sizeInput(el);
+    el.addEventListener('input', () => {
+      el.classList.remove('correct','incorrect');
+      const mark = el.parentElement.querySelector('.mark');
+      if (mark) mark.classList.remove('show','ok','no');
+      sizeInput(el);
+      updateFilled();
+    });
+    el.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') { e.preventDefault(); check(); }
+    });
+  });
+
+  function updateFilled(){
+    const f = inputs.filter(i => i.value.trim().length > 0).length;
+    filledEl.textContent = f;
+  }
+
+  function normalize(s){
+    return (s||'').toLowerCase().trim().replace(/\s+/g,'').replace(/[.,;:!?]/g,'');
+  }
+
+  function check(){
+    let ok = 0, no = 0;
+
+    inputs.forEach(el => {
+      const ans = normalize(el.dataset.a);
+      const alt = el.dataset.alt ? normalize(el.dataset.alt) : null;
+      const val = normalize(el.value);
+      const rawVal = (el.value || '').trim();
+      const mark = el.parentElement.querySelector('.mark');
+      mark.classList.remove('ok','no','show');
+      mark.textContent = '';
+
+      let isOk = false;
+      if (val.length === 0) {
+        el.classList.remove('correct');
+        el.classList.add('incorrect');
+        mark.textContent = '✗';
+        mark.classList.add('no','show');
+        no++;
+      } else {
+        isOk = (val === ans) || (alt && val === alt);
+        if (isOk){
+          el.classList.add('correct');
+          el.classList.remove('incorrect');
+          mark.textContent = '✓';
+          mark.classList.add('ok','show');
+          ok++;
+        } else {
+          el.classList.add('incorrect');
+          el.classList.remove('correct');
+          mark.textContent = '✗';
+          mark.classList.add('no','show');
+          no++;
+        }
+      }
+    });
+
+    okCountEl.textContent = ok;
+    noCountEl.textContent = no;
+    pillOk.style.display = 'inline-flex';
+    pillNo.style.display = no > 0 ? 'inline-flex' : 'none';
+
+    pillInfo.textContent = no === 0
+      ? 'Hoàn hảo! Tất cả đều đúng.'
+      : 'Đáp án sẽ không được hiển thị — hãy thử lại các ô sai.';
+
+    // Submit to Google Form on first check
+    submitToGoogleForm(ok, no);
+  }
+
+  function reset(){
+    inputs.forEach(el => {
+      el.value = '';
+      el.classList.remove('correct','incorrect');
+      const mark = el.parentElement.querySelector('.mark');
+      if (mark){ mark.classList.remove('show','ok','no'); mark.textContent=''; }
+      sizeInput(el);
+    });
+    pillOk.style.display = 'none';
+    pillNo.style.display = 'none';
+    pillInfo.classList.remove('sent','sending','fail');
+    pillInfo.textContent = 'Đáp án sẽ không được hiển thị — hãy thử lại các ô sai.';
+    updateFilled();
+    hasSubmitted = false;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  checkBtn.addEventListener('click', check);
+  resetBtn.addEventListener('click', reset);
+
+  // ============================================================
+  // Student-info gate + Google Form submission
+  // ============================================================
+  const GOOGLE_FORM = {
+    formId:  '1FAIpQLSdSXxAuX605EydbFk3BUAWMfufttEkHApVK1De_V1yqBMvCTg',
+    fields: {
+      name:    'entry.1083152338',
+      class:   'entry.244364555',
+      answers: 'entry.1789889654',
+      score:   'entry.2129989818',
+    },
+  };
+
+  const student = { name: '', class: '' };
+
+  // Gate elements
+  const gateOverlay = document.getElementById('gate-overlay');
+  const gateName    = document.getElementById('gate-name');
+  const gateClass   = document.getElementById('gate-class');
+  const gateError   = document.getElementById('gate-error');
+  const gateStart   = document.getElementById('gate-start');
+
+  function startPractice(){
+    const nameVal  = gateName.value.trim();
+    const classVal = gateClass.value.trim();
+    gateName.classList.toggle('invalid', !nameVal);
+    gateClass.classList.toggle('invalid', !classVal);
+    if (!nameVal || !classVal){
+      gateError.textContent = 'Please enter both your name and your class.';
+      (nameVal ? gateClass : gateName).focus();
+      return;
+    }
+    student.name  = nameVal;
+    student.class = classVal;
+    gateError.textContent = '';
+    gateOverlay.style.display = 'none';
+
+    // Show identity badge next to the date in the masthead
+    const dateEl = document.querySelector('.masthead .date');
+    if (dateEl){
+      const tag = document.createElement('div');
+      tag.className = 'student-tag';
+      tag.innerHTML = 'Học sinh · <b></b><br/>Lớp · <b></b>';
+      tag.querySelectorAll('b')[0].textContent = student.name;
+      tag.querySelectorAll('b')[1].textContent = student.class;
+      dateEl.appendChild(tag);
+    }
+
+    // Focus the first blank input
+    if (inputs.length > 0) setTimeout(() => inputs[0].focus(), 0);
+  }
+
+  gateStart.addEventListener('click', startPractice);
+  [gateName, gateClass].forEach(el => {
+    el.addEventListener('keydown', e => {
+      if (e.key === 'Enter'){ e.preventDefault(); startPractice(); }
+    });
+    el.addEventListener('input', () => {
+      el.classList.remove('invalid');
+      gateError.textContent = '';
+    });
+  });
+  setTimeout(() => gateName.focus(), 50);
+
+  // Build answer transcript: prefix + student typed value, marked ✓/✕
+  function collectAnswersTranscript(){
+    const lines = [];
+    inputs.forEach((el, i) => {
+      const prefix  = el.dataset.prefix || '';
+      const ans     = el.dataset.a || '';
+      const typed   = el.value.trim() || '(blank)';
+      const isOk    = el.classList.contains('correct');
+      const isNo    = el.classList.contains('incorrect');
+      const status  = isOk ? '✓' : (isNo ? '✕' : '·');
+      const stem    = el.closest('.blank')?.querySelector('.stem')?.textContent?.trim() || prefix;
+      lines.push(`${String(i + 1).padStart(2,'0')}. [${status}] ${stem}___   →   ${typed}`);
+    });
+    return lines.join('\n');
+  }
+
+  let hasSubmitted = false;
+  function submitToGoogleForm(ok, no){
+    if (hasSubmitted) return;
+    hasSubmitted = true;
+
+    const total = inputs.length;
+    const url = `https://docs.google.com/forms/d/e/${GOOGLE_FORM.formId}/formResponse`;
+    const payload = {
+      [GOOGLE_FORM.fields.name]:    student.name,
+      [GOOGLE_FORM.fields.class]:   student.class,
+      [GOOGLE_FORM.fields.answers]: collectAnswersTranscript(),
+      [GOOGLE_FORM.fields.score]:   `${ok} / ${total}`,
+    };
+
+    // Hidden-iframe POST — bypasses CORS, no redirect visible to student
+    let iframe = document.getElementById('gf-sink');
+    if (!iframe){
+      iframe = document.createElement('iframe');
+      iframe.name = 'gf-sink';
+      iframe.id   = 'gf-sink';
+      iframe.style.display = 'none';
+      document.body.appendChild(iframe);
+    }
+    const form = document.createElement('form');
+    form.action  = url;
+    form.method  = 'POST';
+    form.target  = 'gf-sink';
+    form.style.display = 'none';
+    Object.entries(payload).forEach(([k, v]) => {
+      const inp = document.createElement('input');
+      inp.type  = 'hidden';
+      inp.name  = k;
+      inp.value = v;
+      form.appendChild(inp);
+    });
+    document.body.appendChild(form);
+    form.submit();
+    setTimeout(() => form.remove(), 2000);
+
+    // Update pill to confirm submission
+    pillInfo.classList.add('sent');
+    pillInfo.textContent = '✓ Kết quả đã được ghi nhận.';
+  }
+</script>
+</body>
+</html>
